@@ -26,21 +26,25 @@ class _DogCardState extends State<DogCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Column(
-        children: <Widget>[
-          DogImage(imageUrl: imageUrl, name: name),
-          DogInfo(
-            height: height,
-            weight: weight,
-            lifespan: lifespan,
-            temperament: temperament,
-          ),
-        ],
+      child: RefreshIndicator(
+        onRefresh: _gatherDogData,
+        child: ListView(
+          children: <Widget>[
+            DogImage(imageUrl: imageUrl),
+            DogInfo(
+              name: name,
+              height: height,
+              weight: weight,
+              lifespan: lifespan,
+              temperament: temperament,
+            ),
+          ],
+        ),
       ),
     );
   }
 
-  void _gatherDogData() async {
+  Future<void> _gatherDogData() async {
     await dogData.getDogData();
 
     setState(() {

@@ -24,16 +24,16 @@ class _HomePageState extends State<HomePage> {
       body: Container(
         child: DogCard(DogData()),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('Home')),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.star), title: Text('Favourites')),
-        ],
-        currentIndex: _selectedIndex,
-        fixedColor: Colors.deepPurple,
-        onTap: _onItemTapped,
-      ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   items: <BottomNavigationBarItem>[
+      //     BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('Home')),
+      //     BottomNavigationBarItem(
+      //         icon: Icon(Icons.star), title: Text('Favourites')),
+      //   ],
+      //   currentIndex: _selectedIndex,
+      //   fixedColor: Colors.deepPurple,
+      //   onTap: _onItemTapped,
+      // ),
     );
   }
 
