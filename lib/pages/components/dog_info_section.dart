@@ -18,11 +18,11 @@ class DogInfoSection extends StatelessWidget {
 
     return Container(
       child: Padding(
-        padding: EdgeInsets.all(12.0),
+        padding: EdgeInsets.all(8.0),
         child: Column(
           children: <Widget>[
-            Text(title + ": ", style: titleStyle),
-            Text(detail, style: detailStyle),
+            Text(title, style: titleStyle),
+            Text(detail, style: detailStyle, textAlign: TextAlign.center),
           ],
         ),
       ),
