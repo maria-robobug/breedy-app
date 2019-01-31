@@ -23,13 +23,13 @@ class DogInfo extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 DogTitle(name: name),
               ],
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 DogInfoSection(title: "Height", detail: height),
                 DogInfoSection(title: "Weight", detail: weight),
