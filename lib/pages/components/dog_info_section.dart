@@ -9,7 +9,7 @@ class DogInfoSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final TextStyle titleStyle = TextStyle(
       fontWeight: FontWeight.bold,
-      fontSize: 25.0,
+      fontSize: 20.0,
     );
 
     final TextStyle detailStyle = TextStyle(
@@ -18,7 +18,8 @@ class DogInfoSection extends StatelessWidget {
 
     return Container(
       child: Padding(
-        padding: EdgeInsets.all(8.0),
+        padding:
+            EdgeInsets.only(left: 12.0, right: 12.0, top: 15.0, bottom: 30.0),
         child: Column(
           children: <Widget>[
             Text(title, style: titleStyle),

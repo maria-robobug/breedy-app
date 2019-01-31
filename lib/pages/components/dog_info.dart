@@ -17,24 +17,28 @@ class DogInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Container(
-      child: Column(
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              DogTitle(name: name),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              DogInfoSection(title: "Height", detail: height),
-              DogInfoSection(title: "Weight", detail: weight),
-              DogInfoSection(title: "Lifespan", detail: lifespan),
-            ],
-          ),
-          DogInfoSection(title: "Temperament", detail: temperament),
-        ],
+      child: Card(
+        elevation: 1.5,
+        margin: EdgeInsets.only(bottom: 5.0),
+        child: Column(
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                DogTitle(name: name),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                DogInfoSection(title: "Height", detail: height),
+                DogInfoSection(title: "Weight", detail: weight),
+                DogInfoSection(title: "Lifespan", detail: lifespan),
+              ],
+            ),
+            DogInfoSection(title: "Temperament", detail: temperament),
+          ],
+        ),
       ),
     );
   }

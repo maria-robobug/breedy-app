@@ -11,8 +11,7 @@ class DogImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Card(
-          elevation: 3.0,
-          margin: EdgeInsets.all(10.0),
+          margin: EdgeInsets.zero,
           child: Image.network(
             imageUrl,
             alignment: Alignment.topCenter,
