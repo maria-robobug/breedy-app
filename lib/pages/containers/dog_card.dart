@@ -1,6 +1,7 @@
 import 'package:dogfacts_app/models/dog_data.dart';
 import 'package:dogfacts_app/pages/components/dog_image.dart';
 import 'package:dogfacts_app/pages/components/dog_info.dart';
+import 'package:dogfacts_app/pages/components/dog_title.dart';
 import 'package:flutter/material.dart';
 
 class DogCard extends StatefulWidget {
@@ -30,14 +31,26 @@ class _DogCardState extends State<DogCard> {
         onRefresh: _gatherDogData,
         child: ListView(
           children: <Widget>[
-            DogImage(imageUrl: imageUrl),
-            DogInfo(
-              name: name,
-              height: height,
-              weight: weight,
-              lifespan: lifespan,
-              temperament: temperament,
-            ),
+            Card(
+                elevation: 1.2,
+                margin: EdgeInsets.only(
+                    top: 25.0, left: 25.0, right: 25.0, bottom: 20.0),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(2.0),
+                ),
+                child: Column(
+                  children: <Widget>[
+                    DogTitle(name: name),
+                    DogImage(imageUrl: imageUrl),
+                    DogInfo(
+                      name: name,
+                      height: height,
+                      weight: weight,
+                      lifespan: lifespan,
+                      temperament: temperament,
+                    ),
+                  ],
+                )),
           ],
         ),
       ),

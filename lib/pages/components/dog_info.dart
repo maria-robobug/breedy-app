@@ -1,5 +1,4 @@
 import 'package:dogfacts_app/pages/components/dog_info_section.dart';
-import 'package:dogfacts_app/pages/components/dog_title.dart';
 import 'package:flutter/material.dart';
 
 class DogInfo extends StatelessWidget {
@@ -16,29 +15,29 @@ class DogInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Widget temperWidget;
+
+    if (temperament == "") {
+      temperWidget = new DogInfoSection(title: "Temperament", detail: "N/A");
+    } else {
+      temperWidget =
+          new DogInfoSection(title: "Temperament", detail: temperament);
+    }
+
     return new Container(
-      child: Card(
-        elevation: 1.5,
-        margin: EdgeInsets.only(bottom: 5.0),
-        child: Column(
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                DogTitle(name: name),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                DogInfoSection(title: "Height", detail: height),
-                DogInfoSection(title: "Weight", detail: weight),
-                DogInfoSection(title: "Lifespan", detail: lifespan),
-              ],
-            ),
-            DogInfoSection(title: "Temperament", detail: temperament),
-          ],
-        ),
+      child: Column(
+        children: <Widget>[
+          temperWidget,
+          Divider(color: Colors.grey),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              DogInfoSection(title: "Height", detail: height),
+              DogInfoSection(title: "Weight", detail: weight),
+              DogInfoSection(title: "Lifespan", detail: lifespan),
+            ],
+          ),
+        ],
       ),
     );
   }

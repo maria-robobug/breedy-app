@@ -9,16 +9,15 @@ class DogImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Card(
-          margin: EdgeInsets.zero,
-          child: Image.network(
-            imageUrl,
-            alignment: Alignment.topCenter,
-            fit: BoxFit.cover,
-            width: 900.0,
-            height: 300.0,
-          )),
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8.0),
+      child: Center(
+        child: Image.network(
+          imageUrl,
+          alignment: Alignment.center,
+          fit: BoxFit.cover,
+        ),
+      ),
     );
   }
 }

@@ -12,34 +12,20 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _selectedIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
         backgroundColor: Colors.black87,
+        elevation: 0.0,
       ),
-      body: Container(
-        child: DogCard(DogData()),
+      body: Center(
+        child: Container(
+          color: Color.fromRGBO(192, 192, 192, 0.2),
+          child: DogCard(DogData()),
+        ),
       ),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   items: <BottomNavigationBarItem>[
-      //     BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('Home')),
-      //     BottomNavigationBarItem(
-      //         icon: Icon(Icons.star), title: Text('Favourites')),
-      //   ],
-      //   currentIndex: _selectedIndex,
-      //   fixedColor: Colors.deepPurple,
-      //   onTap: _onItemTapped,
-      // ),
     );
-  }
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
   }
 }
