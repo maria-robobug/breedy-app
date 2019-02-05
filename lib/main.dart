@@ -1,4 +1,10 @@
-import 'package:dogfacts_app/app.dart';
+import 'package:breedy/app.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-void main() => runApp(DogFactsApp());
+void main() {
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) {
+    runApp(new BreedyApp());
+  });
+}

@@ -1,34 +1,24 @@
-import 'package:dogfacts_app/pages/components/dog_info_section.dart';
+import 'package:breedy/pages/components/dog_info_section.dart';
 import 'package:flutter/material.dart';
 
 class DogInfo extends StatelessWidget {
-  final String temperament, height, weight, lifespan, name;
+  final String height, weight, lifespan;
 
-  const DogInfo(
-      {Key key,
-      this.temperament,
-      this.height,
-      this.weight,
-      this.lifespan,
-      this.name})
-      : super(key: key);
+  const DogInfo({
+    Key key,
+    this.height,
+    this.weight,
+    this.lifespan,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Widget temperWidget;
+    double cWidth = MediaQuery.of(context).size.width * 1.0;
 
-    if (temperament == "") {
-      temperWidget = new DogInfoSection(title: "Temperament", detail: "N/A");
-    } else {
-      temperWidget =
-          new DogInfoSection(title: "Temperament", detail: temperament);
-    }
-
-    return new Container(
+    return Container(
+      width: cWidth,
       child: Column(
         children: <Widget>[
-          temperWidget,
-          Divider(color: Colors.grey),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[

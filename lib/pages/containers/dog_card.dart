@@ -1,72 +1,32 @@
-import 'package:dogfacts_app/models/dog_data.dart';
-import 'package:dogfacts_app/pages/components/dog_image.dart';
-import 'package:dogfacts_app/pages/components/dog_info.dart';
-import 'package:dogfacts_app/pages/components/dog_title.dart';
+import 'package:breedy/models/doggo.dart';
+import 'package:breedy/pages/components/dog_image.dart';
+import 'package:breedy/pages/components/dog_info.dart';
+import 'package:breedy/pages/components/dog_summary.dart';
+import 'package:breedy/pages/components/dog_title.dart';
 import 'package:flutter/material.dart';
 
-class DogCard extends StatefulWidget {
-  final DogData dogData;
+class DogCard extends StatelessWidget {
+  final Doggo doggo;
 
-  DogCard(this.dogData);
-
-  @override
-  _DogCardState createState() => _DogCardState(dogData);
-}
-
-class _DogCardState extends State<DogCard> {
-  void initState() {
-    super.initState();
-    _gatherDogData();
-  }
-
-  DogData dogData;
-  String imageUrl, name, temperament, height, weight, lifespan;
-
-  _DogCardState(this.dogData);
+  const DogCard(this.doggo);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: RefreshIndicator(
-        onRefresh: _gatherDogData,
-        child: ListView(
-          children: <Widget>[
-            Card(
-                elevation: 1.2,
-                margin: EdgeInsets.only(
-                    top: 25.0, left: 25.0, right: 25.0, bottom: 20.0),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(2.0),
-                ),
-                child: Column(
-                  children: <Widget>[
-                    DogTitle(name: name),
-                    DogImage(imageUrl: imageUrl),
-                    DogInfo(
-                      name: name,
-                      height: height,
-                      weight: weight,
-                      lifespan: lifespan,
-                      temperament: temperament,
-                    ),
-                  ],
-                )),
-          ],
-        ),
+      child: ListView(
+        physics: const AlwaysScrollableScrollPhysics(),
+        children: <Widget>[
+          DogImage(imageUrl: doggo.imageUrl),
+          DogTitle(name: doggo.name),
+          DogSummary(temperament: doggo.temperament),
+          Divider(color: Colors.grey),
+          DogInfo(
+            height: doggo.height,
+            weight: doggo.weight,
+            lifespan: doggo.lifespan,
+          ),
+        ],
       ),
     );
-  }
-
-  Future<void> _gatherDogData() async {
-    await dogData.getDogData();
-
-    setState(() {
-      imageUrl = dogData.imageUrl;
-      name = dogData.name;
-      temperament = dogData.temperament;
-      height = dogData.height;
-      weight = dogData.weight;
-      lifespan = dogData.lifespan;
-    });
   }
 }

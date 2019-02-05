@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class DogInfoSection extends StatelessWidget {
   final String title, detail;
 
-  const DogInfoSection({Key key, this.title, this.detail}) : super(key: key);
-  static const double SCALE_FACTOR = 1.0;
+  const DogInfoSection({Key key, this.detail, this.title}) : super(key: key);
+  static const double SCALE_FACTOR = 1.2;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class DogInfoSection extends StatelessWidget {
 
     return Container(
       child: Padding(
-        padding: EdgeInsets.all(12.0),
+        padding: EdgeInsets.all(10.0),
         child: Column(
           children: <Widget>[
             Padding(

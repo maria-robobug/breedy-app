@@ -9,12 +9,12 @@ class DogTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     final TextStyle nameStyle = TextStyle(
       fontWeight: FontWeight.bold,
-      fontSize: 20.0,
+      fontSize: 25.0,
     );
 
     return Container(
-      alignment: Alignment.center,
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.all(15.0),
+      alignment: Alignment.bottomLeft,
       child: Text(name, style: nameStyle),
     );
   }

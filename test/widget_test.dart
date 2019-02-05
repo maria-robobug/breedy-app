@@ -13,9 +13,9 @@
 // // expect(find.text('0'), findsNothing);
 // // expect(find.text('1'), findsOneWidget);
 
-// import 'package:dogfacts_app/app.dart';
-// import 'package:dogfacts_app/pages/components/dog_image.dart';
-// import 'package:dogfacts_app/pages/containers/dog_card.dart';
+// import 'package:breedy/app.dart';
+// import 'package:breedy/pages/components/dog_image.dart';
+// import 'package:breedy/pages/containers/dog_card.dart';
 // import 'package:flutter_test/flutter_test.dart';
 
 // void main() {
