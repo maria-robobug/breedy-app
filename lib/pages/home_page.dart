@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:breedy/models/doggo.dart';
 import 'package:breedy/pages/containers/dog_card.dart';
-import 'package:breedy/controllers/dog_controller.dart';
+import 'package:breedy/services/dog_service.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> _gatherDogData() async {
     await new Future.delayed(
-            new Duration(seconds: 2), DogController.fetchDogData)
+            new Duration(seconds: 2), DogService.fetchDogData)
         .then((doggo) {
       setState(() {
         dog = doggo;

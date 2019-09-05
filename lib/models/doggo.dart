@@ -5,4 +5,5 @@ class Doggo {
   String weight;
   String lifespan;
   String temperament;
+  String breedGroup;
 }

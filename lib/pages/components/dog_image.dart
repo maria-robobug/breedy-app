@@ -19,9 +19,9 @@ class DogImage extends StatelessWidget {
     } else {
       image = new CachedNetworkImage(
         imageUrl: imageUrl,
-        placeholder: Image.asset(defaultImagePath),
         fit: BoxFit.fitWidth,
-        errorWidget: Icon(Icons.error),
+        placeholder: (context, url) => CircularProgressIndicator(),
+        errorWidget: (context, url, error) => Icon(Icons.error),
       );
     }
 

@@ -17,7 +17,7 @@ class DogCard extends StatelessWidget {
         physics: const AlwaysScrollableScrollPhysics(),
         children: <Widget>[
           DogImage(imageUrl: doggo.imageUrl),
-          DogTitle(name: doggo.name),
+          DogTitle(name: doggo.name, origin: doggo.breedGroup),
           DogSummary(temperament: doggo.temperament),
           Divider(color: Colors.grey),
           DogInfo(

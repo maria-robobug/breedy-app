@@ -4,12 +4,8 @@ import 'package:flutter/material.dart';
 class DogInfo extends StatelessWidget {
   final String height, weight, lifespan;
 
-  const DogInfo({
-    Key key,
-    this.height,
-    this.weight,
-    this.lifespan,
-  }) : super(key: key);
+  const DogInfo({Key key, this.height, this.weight, this.lifespan})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
