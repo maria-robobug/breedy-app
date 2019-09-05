@@ -1,8 +1,8 @@
 import 'package:breedy/models/doggo.dart';
-import 'package:breedy/pages/components/dog_image.dart';
-import 'package:breedy/pages/components/dog_info.dart';
-import 'package:breedy/pages/components/dog_summary.dart';
-import 'package:breedy/pages/components/dog_title.dart';
+import 'package:breedy/screens/components/dog_image.dart';
+import 'package:breedy/screens/components/dog_info.dart';
+import 'package:breedy/screens/components/dog_summary.dart';
+import 'package:breedy/screens/components/dog_title.dart';
 import 'package:flutter/material.dart';
 
 class DogCard extends StatelessWidget {

@@ -1,20 +1,21 @@
 import 'dart:async';
 
 import 'package:breedy/models/doggo.dart';
-import 'package:breedy/pages/containers/dog_card.dart';
 import 'package:breedy/services/dog_service.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
+import 'containers/dog_card.dart';
+
+class HomeScreen extends StatefulWidget {
   final String title;
 
-  HomePage(this.title);
+  HomeScreen(this.title);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomeScreenState extends State<HomeScreen> {
   Doggo dog;
 
   void initState() {
@@ -43,9 +44,9 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> _gatherDogData() async {
-    await new Future.delayed(
-            new Duration(seconds: 2), DogService.fetchDogData)
-        .then((doggo) {
+    var duration = new Duration(seconds: 2);
+
+    await new Future.delayed(duration, DogService.fetchData).then((doggo) {
       setState(() {
         dog = doggo;
       });

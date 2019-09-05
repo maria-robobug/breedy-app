@@ -1,4 +1,4 @@
-import 'package:breedy/pages/home_page.dart';
+import 'package:breedy/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class BreedyApp extends StatelessWidget {
@@ -7,7 +7,7 @@ class BreedyApp extends StatelessWidget {
     return MaterialApp(
       title: "Breedy",
       theme: ThemeData(brightness: Brightness.light),
-      home: HomePage("Breedy"),
+      home: HomeScreen("Breedy"),
     );
   }
 }

@@ -1,5 +1,6 @@
-import 'package:breedy/pages/components/dog_info_section.dart';
+import 'package:breedy/screens/components/dog_info_section.dart';
 import 'package:flutter/material.dart';
+
 
 class DogInfo extends StatelessWidget {
   final String height, weight, lifespan;
