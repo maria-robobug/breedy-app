@@ -1,13 +1,15 @@
 import 'dart:convert' as convert;
 import 'dart:async';
 
+import 'package:breedy/models/log/logger.dart';
 import 'package:http/http.dart' as http;
-
 import 'package:breedy/models/doggo.dart';
 
 class DogService {
   static const DOG_API_URL =
       "https://go-animal-api.herokuapp.com/api/v1/dogs/random";
+
+  static final log = getLogger('DogService');
 
   static Future<Doggo> fetchData() async {
     var response = await http.get(DOG_API_URL);
@@ -26,7 +28,7 @@ class DogService {
 
       return doggo;
     } else {
-      print("Request failed with status: ${response.statusCode}");
+      log.e("Request failed with status: ${response.statusCode}");
       return null;
     }
   }
