@@ -1,33 +1,35 @@
-import 'dart:convert';
-import 'dart:io';
+import 'dart:convert' as convert;
 import 'dart:async';
 
+import 'package:breedy/models/log/logger.dart';
+import 'package:http/http.dart' as http;
 import 'package:breedy/models/doggo.dart';
 
 class DogService {
-  static const ANIMAL_API_URL = "https://go-animal-api.herokuapp.com/api/v1/dogs/random";
+  static const DOG_API_URL =
+      "https://go-animal-api.herokuapp.com/api/v1/dogs/random";
 
-  static Future fetchDogData() async {
-    Doggo doggo = new Doggo();
+  static final log = getLogger('DogService');
 
-    try {
-      var request = await HttpClient().getUrl(Uri.parse(ANIMAL_API_URL));
-      var response = await request.close();
+  static Future<Doggo> fetchData() async {
+    var response = await http.get(DOG_API_URL);
 
-      await for (var contents in response.transform(Utf8Decoder())) {
-        var decodedContents = json.decode(contents);
-        doggo.imageUrl = decodedContents['image']['url'];
-        doggo.name = decodedContents['name'];
-        doggo.height = decodedContents['height'];
-        doggo.weight = decodedContents['weight'];
-        doggo.lifespan = decodedContents['lifespan'];
-        doggo.temperament = decodedContents['temperament'];
-        doggo.breedGroup = decodedContents['breed_group'];
-      }
-    } catch (exception) {
-      print(exception);
+    if (response.statusCode == 200) {
+      Doggo doggo = new Doggo();
+      var jsonResponse = convert.jsonDecode(response.body);
+
+      doggo.imageUrl = jsonResponse['image']['url'];
+      doggo.name = jsonResponse['name'];
+      doggo.height = jsonResponse['height'];
+      doggo.weight = jsonResponse['weight'];
+      doggo.lifespan = jsonResponse['lifespan'];
+      doggo.temperament = jsonResponse['temperament'];
+      doggo.breedGroup = jsonResponse['breed_group'];
+
+      return doggo;
+    } else {
+      log.e("Request failed with status: ${response.statusCode}");
+      return null;
     }
-
-    return doggo;
   }
 }
