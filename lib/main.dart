@@ -6,7 +6,7 @@ import 'package:logger/logger.dart';
 void main() {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {
-    Logger.level = Level.debug;
+    Logger.level = Level.verbose;
     runApp(new BreedyApp());
   });
 }

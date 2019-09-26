@@ -16,7 +16,10 @@ class DogCard extends StatelessWidget {
       child: ListView(
         physics: const AlwaysScrollableScrollPhysics(),
         children: <Widget>[
-          DogImage(imageUrl: doggo.imageUrl),
+          DogImage(
+              imageUrl: doggo.imageUrl,
+              imageHeight: doggo.imageHeight,
+              imageWidth: doggo.imageWidth),
           DogTitle(name: doggo.name, origin: doggo.breedGroup),
           DogSummary(temperament: doggo.temperament),
           Divider(color: Colors.grey),

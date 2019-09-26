@@ -10,6 +10,6 @@ class SimpleLogPrinter extends LogPrinter {
     var message = logEvent.message;
     var stack = logEvent.stackTrace ?? "";
 
-    println('$emoji $className - $message\n $stack');
+    println('$emoji [$className] $message\n $stack');
   }
 }
