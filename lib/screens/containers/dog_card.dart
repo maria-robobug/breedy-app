@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 
 class DogCard extends StatelessWidget {
   final Doggo doggo;
-
   const DogCard(this.doggo);
 
   @override

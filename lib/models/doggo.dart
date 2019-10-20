@@ -1,73 +1,39 @@
+import 'dart:convert';
+
 class Doggo {
-  String get imageUrl {
-    return imageUrl;
-  }
+  final String imageUrl;
+  final int imageWidth;
+  final int imageHeight;
+  final String name;
+  final String height;
+  final String weight;
+  final String lifespan;
+  final String temperament;
+  final String breedGroup;
 
-  String get imageHeight {
-    return imageHeight;
-  }
+  Doggo({
+      this.imageUrl,
+      this.imageWidth,
+      this.imageHeight,
+      this.name,
+      this.height,
+      this.weight,
+      this.lifespan,
+      this.temperament,
+      this.breedGroup
+  });
 
-  String get imageWidth {
-    return imageWidth;
-  }
-
-  String get name {
-    return name;
-  }
-
-  String get height {
-    return height;
-  }
-
-  String get weight {
-    return weight;
-  }
-
-  String get lifespan {
-    return lifespan;
-  }
-
-  String get temperament {
-    return temperament;
-  }
-
-  String get breedGroup {
-    return breedGroup;
-  }
-
-  set imageUrl(String imageUrl) {
-    this.imageUrl = imageUrl;
-  }
-
-  set imageHeight(String imageHeight) {
-    this.imageHeight = imageHeight;
-  }
-
-  set imageWidth(String imageWidth) {
-    this.imageWidth = imageWidth;
-  }
-
-  set name(String name) {
-    this.name = name;
-  }
-
-  set height(String height) {
-    this.height = height;
-  }
-
-  set weight(String weight) {
-    this.weight = weight;
-  }
-
-  set lifespan(String lifespan) {
-    this.lifespan = lifespan;
-  }
-
-  set temperament(String temperament) {
-    this.temperament = temperament;
-  }
-
-  set breedGroup(String breedGroup) {
-    this.breedGroup = breedGroup;
+  factory Doggo.fromJson(Map<String, dynamic> json) {
+    return Doggo(
+      imageUrl: json['image']['url'],
+      imageWidth: json['image']['width'],
+      imageHeight: json['image']['height'],
+      name: json['name'],
+      height: json['height'],
+      weight: json['weight'],
+      lifespan: json['lifespan'],
+      temperament: json['temperament'],
+      breedGroup: json['breed_group'],
+    );
   }
 }
