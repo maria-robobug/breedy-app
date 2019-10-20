@@ -11,14 +11,15 @@ class DogImage extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget imageWidget = new CachedNetworkImage(
       imageUrl: imageUrl,
-      width: imageWidth.toDouble(),
-      height: imageHeight.toDouble(),
+      // width: imageWidth.toDouble(),
+      // height: imageHeight.toDouble(),
+      fit: BoxFit.scaleDown,
       placeholder: (context, url) => CircularProgressIndicator(),
       errorWidget: (context, url, error) => Icon(Icons.error),
     );
 
     return Container(
-      alignment: Alignment.topCenter,
+      alignment: Alignment.center,
       child: imageWidget,
     );
   }

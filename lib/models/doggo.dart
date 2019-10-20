@@ -11,8 +11,8 @@ class Doggo {
   final String temperament;
   final String breedGroup;
 
-  Doggo({
-      this.imageUrl,
+  Doggo(
+      {this.imageUrl,
       this.imageWidth,
       this.imageHeight,
       this.name,
@@ -20,8 +20,7 @@ class Doggo {
       this.weight,
       this.lifespan,
       this.temperament,
-      this.breedGroup
-  });
+      this.breedGroup});
 
   factory Doggo.fromJson(Map<String, dynamic> json) {
     return Doggo(
