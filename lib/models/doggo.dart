@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 class Doggo {
   final String imageUrl;
   final int imageWidth;
