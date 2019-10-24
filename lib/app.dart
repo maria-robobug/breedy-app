@@ -7,7 +7,7 @@ class BreedyApp extends StatelessWidget {
     return MaterialApp(
       title: "Breedy",
       theme: ThemeData(brightness: Brightness.light),
-      home: HomeScreen("Breedy"),
+      home: HomeScreen(),
     );
   }
 }
