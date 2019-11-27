@@ -6,8 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:breedy/models/doggo.dart';
 
 class DogService {
-  static const DOG_API_URL =
-      "https://go-animal-api.herokuapp.com/api/v1/dogs/random";
+  static const DOG_API_URL = "https://go-animal-api.herokuapp.com/api/v1/dogs/random";
   static final log = getLogger('DogService');
 
   static Future<Doggo> fetchData() async {
