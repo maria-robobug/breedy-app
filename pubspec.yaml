@@ -1,22 +1,17 @@
 name: breedy
 description: An app that shows a random dog breed for the user.
-
-# The following defines the version and build number for your application.
-# A version number is three numbers separated by dots, like 1.2.43
-# followed by an optional build number separated by a +.
-# Both the version and the builder number may be overridden in flutter
-# build by specifying --build-name and --build-number, respectively.
-# Read more about versioning at semver.org.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.0.0-dev.68.0 <3.0.0"
+  sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
   cached_network_image: ^1.1.1
   cupertino_icons: ^0.1.2
+  equatable: ^1.0.0
+  flutter_bloc: ^2.0.0
   http: ^0.12.0+2
   logger: ^0.7.0+2
 
@@ -26,7 +21,4 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
-  # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
-  # the material Icons class.
   uses-material-design: true
