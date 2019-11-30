@@ -1,5 +1,5 @@
+import 'package:breedy/widgets/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:breedy/screens/doggo_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
