@@ -1,52 +1,79 @@
 import 'dart:async';
+import 'package:breedy/bloc/bloc.dart';
+import 'package:breedy/bloc/doggo_event.dart';
+import 'package:breedy/bloc/doggo_state.dart';
 import 'package:breedy/models/doggo.dart';
 import 'package:breedy/repositories/repositories.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'containers/dog_card.dart';
 
 class DoggoScreen extends StatefulWidget {
-  final String title;
-  DoggoScreen(this.title);
-
   @override
-  _DoggoScreenState createState() => _DoggoScreenState(animalRepository);
+  State<DoggoScreen> createState() => _DoggoScreenState();
 }
 
 class _DoggoScreenState extends State<DoggoScreen> {
-  Doggo dog;
-  AnimalRepository animalRepository;
+  Completer<void> _refreshCompleter;
 
-  _DoggoScreenState(this.animalRepository);
-
+  @override
   void initState() {
+    BlocProvider.of<DoggoBloc>(context).add(FetchDoggo());
+    _refreshCompleter = Completer<void>();
+
     super.initState();
-    _gatherDogData();
   }
 
   @override
   Widget build(BuildContext context) {
+    BlocProvider.of<DoggoBloc>(context);
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-        backgroundColor: Colors.black87,
-        elevation: 0.0,
-      ),
       body: Center(
-        child: Container(
-          child: RefreshIndicator(
-            onRefresh: _gatherDogData,
-            color: Color.fromRGBO(192, 192, 192, 0.2),
-            child: dog == null ? Text("fetching doggo...") : DogCard(dog),
+        child: BlocListener<DoggoBloc, DoggoState>(
+          listener: (context, state) {
+            if (state is DoggoLoaded) {
+              _refreshCompleter?.complete();
+              _refreshCompleter = Completer();
+            }
+          },
+          child: BlocBuilder<DoggoBloc, DoggoState>(
+            builder: (context, state) {
+              if (state is DoggoLoading) {
+                return buildDoggoLoading();
+              } else if (state is DoggoLoaded) {
+                return buildDoggoLoaded(context, state.doggo);
+              } else if (state is DoggoError) {
+                return buildDoggoError();
+              }
+            },
           ),
         ),
       ),
     );
   }
 
-  Future<void> _gatherDogData() async {
-    final Doggo doggo = await animalRepository.getRandomDoggo();
-    setState(() {
-      dog = doggo;
-    });
+  Widget buildDoggoLoading() {
+    return Center(child: CircularProgressIndicator());
+  }
+
+  Widget buildDoggoLoaded(BuildContext context, Doggo doggo) {
+    return RefreshIndicator(
+      onRefresh: () {
+        BlocProvider.of<DoggoBloc>(context).add(RefreshDoggo());
+        return _refreshCompleter.future;
+      },
+      child: Container(
+        color: Color.fromRGBO(192, 192, 192, 0.2),
+        child: DogCard(doggo),
+      ),
+    );
+  }
+
+  Widget buildDoggoError() {
+    return Text(
+      'Error fetching doggo!',
+      style: TextStyle(color: Colors.red),
+    );
   }
 }

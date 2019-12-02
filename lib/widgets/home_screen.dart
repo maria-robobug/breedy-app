@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => DoggoScreen('Breedy')),
+                MaterialPageRoute(builder: (context) => DoggoScreen()),
               );
             },
             child: new Text('Daily Doggo')),

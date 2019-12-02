@@ -8,3 +8,5 @@ abstract class DoggoEvent extends Equatable {
 }
 
 class FetchDoggo extends DoggoEvent {}
+
+class RefreshDoggo extends DoggoEvent {}

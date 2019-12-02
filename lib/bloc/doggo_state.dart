@@ -9,13 +9,12 @@ abstract class DoggoState extends Equatable {
   List<Object> get props => [];
 }
 
-class DoggoEmpty extends DoggoState {}
+class InitialDoggoState extends DoggoState {}
 
 class DoggoLoading extends DoggoState {}
 
 class DoggoLoaded extends DoggoState {
   final Doggo doggo;
-
   const DoggoLoaded({@required this.doggo}) : assert(doggo != null);
 
   @override
