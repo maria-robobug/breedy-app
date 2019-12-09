@@ -1,4 +1,4 @@
-import 'package:breedy/screens/components/dog_info_section.dart';
+import 'package:breedy/widgets/components/dog_info_section.dart';
 import 'package:flutter/material.dart';
 
 class DogInfo extends StatelessWidget {
