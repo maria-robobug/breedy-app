@@ -9,28 +9,32 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'containers/dog_card.dart';
 
 class DoggoScreen extends StatefulWidget {
+  final AnimalRepository animalRepository;
+
+  const DoggoScreen({Key key, this.animalRepository}) : super(key: key);
+
   @override
   State<DoggoScreen> createState() => _DoggoScreenState();
 }
 
 class _DoggoScreenState extends State<DoggoScreen> {
   Completer<void> _refreshCompleter;
+  DoggoBloc _doggoBloc;
 
   @override
   void initState() {
-    BlocProvider.of<DoggoBloc>(context).add(FetchDoggo());
+    _doggoBloc = DoggoBloc(animalRepository: widget.animalRepository);
+    _doggoBloc.add(FetchDoggo());
     _refreshCompleter = Completer<void>();
-
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<DoggoBloc>(context);
-
     return Scaffold(
       body: Center(
         child: BlocListener<DoggoBloc, DoggoState>(
+          bloc: _doggoBloc,
           listener: (context, state) {
             if (state is DoggoLoaded) {
               _refreshCompleter?.complete();
@@ -38,14 +42,18 @@ class _DoggoScreenState extends State<DoggoScreen> {
             }
           },
           child: BlocBuilder<DoggoBloc, DoggoState>(
+            bloc: _doggoBloc,
             builder: (context, state) {
               if (state is DoggoLoading) {
                 return buildDoggoLoading();
-              } else if (state is DoggoLoaded) {
+              }
+              if (state is DoggoLoaded) {
                 return buildDoggoLoaded(context, state.doggo);
-              } else if (state is DoggoError) {
+              }
+              if (state is DoggoError) {
                 return buildDoggoError();
               }
+              return buildDoggoLoading();
             },
           ),
         ),
@@ -60,7 +68,7 @@ class _DoggoScreenState extends State<DoggoScreen> {
   Widget buildDoggoLoaded(BuildContext context, Doggo doggo) {
     return RefreshIndicator(
       onRefresh: () {
-        BlocProvider.of<DoggoBloc>(context).add(RefreshDoggo());
+        _doggoBloc.add(RefreshDoggo());
         return _refreshCompleter.future;
       },
       child: Container(
