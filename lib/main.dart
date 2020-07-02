@@ -8,10 +8,14 @@ import 'package:breedy/bloc/bloc.dart';
 import 'package:bloc/bloc.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
   BlocSupervisor.delegate = SimpleBlocDelegate();
+
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {
     Logger.level = Level.verbose;
+
     runApp(App());
   });
 }
