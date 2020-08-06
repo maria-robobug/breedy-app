@@ -10,7 +10,7 @@ import 'package:bloc/bloc.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
-  BlocSupervisor.delegate = SimpleBlocDelegate();
+  Bloc.observer = SimpleBlocObserver();
 
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {

@@ -8,10 +8,9 @@ import 'package:flutter/material.dart';
 class DoggoBloc extends Bloc<DoggoEvent, DoggoState> {
   final AnimalRepository animalRepository;
 
-  DoggoBloc({@required this.animalRepository}) : assert(animalRepository != null);
-
-  @override
-  DoggoState get initialState => InitialDoggoState();
+  DoggoBloc({@required this.animalRepository})
+      : assert(animalRepository != null),
+        super(DoggoLoading());
 
   @override
   Stream<DoggoState> mapEventToState(DoggoEvent event) async* {

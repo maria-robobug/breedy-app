@@ -34,7 +34,7 @@ class _DoggoScreenState extends State<DoggoScreen> {
     return Scaffold(
       body: Center(
         child: BlocListener<DoggoBloc, DoggoState>(
-          bloc: _doggoBloc,
+          cubit: _doggoBloc,
           listener: (context, state) {
             if (state is DoggoLoaded) {
               _refreshCompleter?.complete();
@@ -42,11 +42,8 @@ class _DoggoScreenState extends State<DoggoScreen> {
             }
           },
           child: BlocBuilder<DoggoBloc, DoggoState>(
-            bloc: _doggoBloc,
+            cubit: _doggoBloc,
             builder: (context, state) {
-              if (state is DoggoLoading) {
-                return buildDoggoLoading();
-              }
               if (state is DoggoLoaded) {
                 return buildDoggoLoaded(context, state.doggo);
               }

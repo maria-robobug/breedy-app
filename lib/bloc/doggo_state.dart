@@ -9,9 +9,8 @@ abstract class DoggoState extends Equatable {
   List<Object> get props => [];
 }
 
-class InitialDoggoState extends DoggoState {}
-
 class DoggoLoading extends DoggoState {}
+
 
 class DoggoLoaded extends DoggoState {
   final Doggo doggo;
