@@ -33,7 +33,6 @@ class DogCard extends StatelessWidget {
                   imageWidth: doggo.imageWidth),
             ),
             DogSummary(temperament: doggo.temperament),
-            Divider(color: Colors.grey),
             DogInfo(
               height: doggo.height,
               weight: doggo.weight,

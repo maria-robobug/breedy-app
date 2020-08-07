@@ -8,17 +8,14 @@ class DogSummary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double deviceWidth = MediaQuery.of(context).size.width * 1.0;
-
     return Container(
-      width: deviceWidth,
       padding: const EdgeInsets.all(15.0),
-      alignment: Alignment.bottomLeft,
+      alignment: Alignment.center,
       child: temperament == null
           ? Text("N/A",
-              textAlign: TextAlign.left, textScaleFactor: SCALE_FACTOR)
+              textAlign: null, textScaleFactor: null)
           : Text(temperament,
-              textAlign: TextAlign.left, textScaleFactor: SCALE_FACTOR),
+              textAlign: TextAlign.center, textScaleFactor: SCALE_FACTOR),
     );
   }
 }

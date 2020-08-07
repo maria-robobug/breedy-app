@@ -7,8 +7,6 @@ class DogTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double cWidth = MediaQuery.of(context).size.width * 1.0;
-
     final TextStyle nameStyle = TextStyle(
       fontWeight: FontWeight.w500,
       fontSize: 25.0,
@@ -21,15 +19,12 @@ class DogTitle extends StatelessWidget {
 
     return Container(
       padding: const EdgeInsets.all(16.0),
-      width: cWidth,
-      child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(name, style: nameStyle),
-            origin != null
-                ? Text(" " + origin + " dog", style: originStyle)
-                : Text(""),
-          ]),
+      child: Column(children: <Widget>[
+        Text(name, style: nameStyle),
+        origin != null
+            ? Text(" " + origin + " dog", style: originStyle)
+            : Text(""),
+      ]),
     );
   }
 }
