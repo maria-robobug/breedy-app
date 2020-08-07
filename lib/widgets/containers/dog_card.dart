@@ -29,8 +29,8 @@ class DogCard extends StatelessWidget {
           children: <Widget>[
             DogTitle(name: doggo.name, origin: doggo.breedGroup),
             SizedBox(
-              width: queryData.size.width,
-              height: queryData.size.height / 3,
+              width: queryData.size.width * 0.5,
+              height: queryData.size.height * 0.5,
               child: DogImage(
                   imageUrl: doggo.imageUrl,
                   imageHeight: doggo.imageHeight,
