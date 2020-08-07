@@ -11,7 +11,6 @@ class DogImage extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget imageWidget = new CachedNetworkImage(
       imageUrl: imageUrl,
-      fit: BoxFit.contain,
       placeholder: (context, url) => CircularProgressIndicator(),
       errorWidget: (context, url, error) => Icon(Icons.error),
     );

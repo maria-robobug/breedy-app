@@ -11,6 +11,9 @@ class DogCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MediaQueryData queryData;
+    queryData = MediaQuery.of(context);
+
     return Container(
       alignment: Alignment.center,
       child: Card(
@@ -19,14 +22,15 @@ class DogCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
         ),
         elevation: 3.0,
+        margin: EdgeInsets.all(20),
         child: ListView(
           physics: const AlwaysScrollableScrollPhysics(),
           shrinkWrap: true,
           children: <Widget>[
             DogTitle(name: doggo.name, origin: doggo.breedGroup),
             SizedBox(
-              width: 600,
-              height: 300,
+              width: queryData.size.width,
+              height: queryData.size.height / 3,
               child: DogImage(
                   imageUrl: doggo.imageUrl,
                   imageHeight: doggo.imageHeight,
