@@ -32,7 +32,8 @@ class _DoggoScreenState extends State<DoggoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body: Container(
+        alignment: Alignment.topCenter,
         child: BlocListener<DoggoBloc, DoggoState>(
           cubit: _doggoBloc,
           listener: (context, state) {
@@ -69,7 +70,6 @@ class _DoggoScreenState extends State<DoggoScreen> {
         return _refreshCompleter.future;
       },
       child: Container(
-        color: Color.fromRGBO(192, 192, 192, 0.2),
         child: DogCard(doggo),
       ),
     );

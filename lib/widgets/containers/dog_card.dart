@@ -12,22 +12,35 @@ class DogCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: ListView(
-        physics: const AlwaysScrollableScrollPhysics(),
-        children: <Widget>[
-          DogTitle(name: doggo.name, origin: doggo.breedGroup),
-          DogImage(
-              imageUrl: doggo.imageUrl,
-              imageHeight: doggo.imageHeight,
-              imageWidth: doggo.imageWidth),
-          DogSummary(temperament: doggo.temperament),
-          Divider(color: Colors.grey),
-          DogInfo(
-            height: doggo.height,
-            weight: doggo.weight,
-            lifespan: doggo.lifespan,
-          ),
-        ],
+      alignment: Alignment.center,
+      child: Card(
+        shape: RoundedRectangleBorder(
+          side: BorderSide(color: Colors.transparent, width: 1),
+          borderRadius: BorderRadius.circular(15),
+        ),
+        elevation: 3.0,
+        child: ListView(
+          physics: const AlwaysScrollableScrollPhysics(),
+          shrinkWrap: true,
+          children: <Widget>[
+            DogTitle(name: doggo.name, origin: doggo.breedGroup),
+            SizedBox(
+              width: 600,
+              height: 300,
+              child: DogImage(
+                  imageUrl: doggo.imageUrl,
+                  imageHeight: doggo.imageHeight,
+                  imageWidth: doggo.imageWidth),
+            ),
+            DogSummary(temperament: doggo.temperament),
+            Divider(color: Colors.grey),
+            DogInfo(
+              height: doggo.height,
+              weight: doggo.weight,
+              lifespan: doggo.lifespan,
+            ),
+          ],
+        ),
       ),
     );
   }
