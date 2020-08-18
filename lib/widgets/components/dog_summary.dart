@@ -8,30 +8,25 @@ class DogSummary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle traitsStyle = TextStyle(
-      fontSize: 25.0,
+    final TextStyle textStyle = TextStyle(
+      fontSize: 15.0,
+      color: Colors.white,
     );
 
     return Container(
       padding: const EdgeInsets.all(15.0),
-      alignment: Alignment.center,
       child: ListView(
         shrinkWrap: true,
         children: [
-          Container(
-            padding: EdgeInsets.only(bottom: 10.0),
-            child: Text(
-              "Traits",
-              textAlign: TextAlign.center,
-              textScaleFactor: 1,
-              style: traitsStyle,
-            ),
-          ),
-          temperament == null
+          temperament == ""
               ? Text("N/A",
-                  textAlign: TextAlign.center, textScaleFactor: SCALE_FACTOR)
+                  textAlign: TextAlign.center,
+                  textScaleFactor: SCALE_FACTOR,
+                  style: textStyle)
               : Text(temperament,
-                  textAlign: TextAlign.center, textScaleFactor: SCALE_FACTOR),
+                  textAlign: TextAlign.center,
+                  textScaleFactor: SCALE_FACTOR,
+                  style: textStyle),
         ],
       ),
     );

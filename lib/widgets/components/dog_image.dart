@@ -1,3 +1,4 @@
+import 'package:breedy/models/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
@@ -9,15 +10,21 @@ class DogImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
+
     Widget imageWidget = new CachedNetworkImage(
       imageUrl: imageUrl,
       placeholder: (context, url) => CircularProgressIndicator(),
       errorWidget: (context, url, error) => Icon(Icons.error),
     );
 
-    return Container(
-      alignment: Alignment.center,
-      child: imageWidget,
+    return SizedBox(
+      child: Container(
+        alignment: Alignment.center,
+        width: SizeConfig.blockSizeVertical * 90,
+        height: SizeConfig.blockSizeHorizontal * 90,
+        child: (imageWidget),
+      ),
     );
   }
 }

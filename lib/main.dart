@@ -32,9 +32,8 @@ class App extends StatelessWidget {
       theme: ThemeData(brightness: Brightness.light),
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Breedy'),
+          shadowColor: Colors.transparent,
           backgroundColor: Colors.black87,
-          elevation: 0.0,
         ),
         body: DoggoScreen(animalRepository: animalRepository),
       ),

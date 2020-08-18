@@ -34,6 +34,7 @@ class _DoggoScreenState extends State<DoggoScreen> {
     return Scaffold(
       body: Container(
         alignment: Alignment.topCenter,
+        color: Colors.black87,
         child: BlocListener<DoggoBloc, DoggoState>(
           cubit: _doggoBloc,
           listener: (context, state) {

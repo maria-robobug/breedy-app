@@ -9,20 +9,26 @@ class DogTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     final TextStyle nameStyle = TextStyle(
       fontWeight: FontWeight.w500,
-      fontSize: 25.0,
+      fontSize: 28.0,
+      color: Colors.white,
     );
 
     final TextStyle originStyle = TextStyle(
       fontWeight: FontWeight.w300,
-      fontSize: 18.0,
+      fontSize: 25.0,
+      color: Colors.white70,
     );
 
     return Container(
-      padding: const EdgeInsets.all(16.0),
+      padding: EdgeInsets.only(bottom: 25.0),
       child: Column(children: <Widget>[
         Text(name, style: nameStyle),
         origin != null
-            ? Text(" " + origin + " dog", style: originStyle)
+            ? Text(
+                " " + origin + " dog",
+                style: originStyle,
+                textAlign: TextAlign.center,
+              )
             : Text(""),
       ]),
     );
