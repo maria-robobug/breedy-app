@@ -10,6 +10,12 @@ class DogInfoSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final TextStyle titleStyle = TextStyle(
       fontWeight: FontWeight.bold,
+      color: Colors.white,
+    );
+
+    final TextStyle detailStyle = TextStyle(
+      fontWeight: FontWeight.bold,
+      color: Colors.white70,
     );
 
     return Container(
@@ -19,11 +25,15 @@ class DogInfoSection extends StatelessWidget {
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child:
-                  Text(title, style: titleStyle, textScaleFactor: SCALE_FACTOR),
+              child: Text(title,
+                  style: titleStyle,
+                  textAlign: TextAlign.center,
+                  textScaleFactor: SCALE_FACTOR),
             ),
             Text(detail,
-                textAlign: TextAlign.center, textScaleFactor: SCALE_FACTOR),
+                textAlign: TextAlign.center,
+                style: detailStyle,
+                textScaleFactor: SCALE_FACTOR),
           ],
         ),
       ),

@@ -70,6 +70,7 @@ class _DoggoScreenState extends State<DoggoScreen> {
         return _refreshCompleter.future;
       },
       child: Container(
+        color: Colors.black87,
         child: DogCard(doggo),
       ),
     );

@@ -32,7 +32,7 @@ class App extends StatelessWidget {
       theme: ThemeData(brightness: Brightness.light),
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Breedy'),
+          // title: const Text('Breedy'),
           backgroundColor: Colors.black87,
           elevation: 0.0,
         ),

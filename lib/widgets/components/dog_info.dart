@@ -9,10 +9,7 @@ class DogInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double cWidth = MediaQuery.of(context).size.width * 1.0;
-
     return Container(
-      width: cWidth,
       child: Column(
         children: <Widget>[
           Row(
