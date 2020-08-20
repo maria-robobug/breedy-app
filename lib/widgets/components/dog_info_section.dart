@@ -1,3 +1,4 @@
+import 'package:breedy/constants.dart';
 import 'package:flutter/material.dart';
 
 class DogInfoSection extends StatelessWidget {
@@ -8,16 +9,6 @@ class DogInfoSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle titleStyle = TextStyle(
-      fontWeight: FontWeight.bold,
-      color: Colors.white,
-    );
-
-    final TextStyle detailStyle = TextStyle(
-      fontWeight: FontWeight.bold,
-      color: Colors.white70,
-    );
-
     return Container(
       child: Padding(
         padding: EdgeInsets.all(10.0),
@@ -26,13 +17,13 @@ class DogInfoSection extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(title,
-                  style: titleStyle,
+                  style: CustomTextStyle.bodyHeading,
                   textAlign: TextAlign.center,
                   textScaleFactor: SCALE_FACTOR),
             ),
             Text(detail,
                 textAlign: TextAlign.center,
-                style: detailStyle,
+                style: CustomTextStyle.bodyText,
                 textScaleFactor: SCALE_FACTOR),
           ],
         ),

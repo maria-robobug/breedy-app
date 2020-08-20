@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:breedy/bloc/bloc.dart';
 import 'package:breedy/bloc/doggo_event.dart';
 import 'package:breedy/bloc/doggo_state.dart';
+import 'package:breedy/constants.dart';
 import 'package:breedy/models/doggo.dart';
 import 'package:breedy/repositories/repositories.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +35,7 @@ class _DoggoScreenState extends State<DoggoScreen> {
     return Scaffold(
       body: Container(
         alignment: Alignment.topCenter,
-        color: Colors.black87,
+        color: Colors.white10,
         child: BlocListener<DoggoBloc, DoggoState>(
           cubit: _doggoBloc,
           listener: (context, state) {
@@ -79,7 +80,7 @@ class _DoggoScreenState extends State<DoggoScreen> {
   Widget buildDoggoError() {
     return Text(
       'Error fetching doggo!',
-      style: TextStyle(color: Colors.red),
+      style: CustomTextStyle.error,
     );
   }
 }

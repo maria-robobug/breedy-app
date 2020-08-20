@@ -1,5 +1,4 @@
 import 'package:breedy/models/doggo.dart';
-import 'package:breedy/models/size_config.dart';
 import 'package:breedy/widgets/components/dog_image.dart';
 import 'package:breedy/widgets/components/dog_info.dart';
 import 'package:breedy/widgets/components/dog_summary.dart';

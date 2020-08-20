@@ -1,3 +1,4 @@
+import 'package:breedy/constants.dart';
 import 'package:flutter/material.dart';
 
 class DogSummary extends StatelessWidget {
@@ -8,11 +9,6 @@ class DogSummary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle textStyle = TextStyle(
-      fontSize: 15.0,
-      color: Colors.white,
-    );
-
     return Container(
       padding: const EdgeInsets.all(15.0),
       child: ListView(
@@ -22,11 +18,11 @@ class DogSummary extends StatelessWidget {
               ? Text("N/A",
                   textAlign: TextAlign.center,
                   textScaleFactor: SCALE_FACTOR,
-                  style: textStyle)
+                  style: CustomTextStyle.text)
               : Text(temperament,
                   textAlign: TextAlign.center,
                   textScaleFactor: SCALE_FACTOR,
-                  style: textStyle),
+                  style: CustomTextStyle.text),
         ],
       ),
     );

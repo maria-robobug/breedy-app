@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:logger/logger.dart';
 import 'package:http/http.dart' as http;
+import 'constants.dart';
 import 'repositories/repositories.dart';
 import 'package:breedy/bloc/bloc.dart';
 import 'package:bloc/bloc.dart';
@@ -32,8 +33,14 @@ class App extends StatelessWidget {
       theme: ThemeData(brightness: Brightness.light),
       home: Scaffold(
         appBar: AppBar(
+          centerTitle: true,
+          title: Text(
+            "Breedy",
+            textScaleFactor: 1.5,
+            style: CustomTextStyle.title,
+          ),
           shadowColor: Colors.transparent,
-          backgroundColor: Colors.black87,
+          backgroundColor: Colors.white10,
         ),
         body: DoggoScreen(animalRepository: animalRepository),
       ),
