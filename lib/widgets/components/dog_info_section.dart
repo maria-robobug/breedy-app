@@ -23,7 +23,7 @@ class DogInfoSection extends StatelessWidget {
             ),
             Text(detail,
                 textAlign: TextAlign.center,
-                style: CustomTextStyle.bodyText,
+                style: CustomTextStyle.body,
                 textScaleFactor: SCALE_FACTOR),
           ],
         ),

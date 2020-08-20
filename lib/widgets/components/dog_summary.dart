@@ -18,11 +18,11 @@ class DogSummary extends StatelessWidget {
               ? Text("N/A",
                   textAlign: TextAlign.center,
                   textScaleFactor: SCALE_FACTOR,
-                  style: CustomTextStyle.text)
+                  style: CustomTextStyle.generic)
               : Text(temperament,
                   textAlign: TextAlign.center,
                   textScaleFactor: SCALE_FACTOR,
-                  style: CustomTextStyle.text),
+                  style: CustomTextStyle.generic),
         ],
       ),
     );

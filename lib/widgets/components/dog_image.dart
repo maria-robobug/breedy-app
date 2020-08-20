@@ -21,8 +21,8 @@ class DogImage extends StatelessWidget {
     return SizedBox(
       child: Container(
         alignment: Alignment.center,
-        width: SizeConfig.blockSizeVertical * 90,
-        height: SizeConfig.blockSizeHorizontal * 90,
+        width: SizeConfig.blockSizeVertical * 50,
+        height: SizeConfig.blockSizeHorizontal * 80,
         child: (imageWidget),
       ),
     );

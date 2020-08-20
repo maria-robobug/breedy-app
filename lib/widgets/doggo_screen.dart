@@ -34,8 +34,6 @@ class _DoggoScreenState extends State<DoggoScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        alignment: Alignment.topCenter,
-        color: Colors.white10,
         child: BlocListener<DoggoBloc, DoggoState>(
           cubit: _doggoBloc,
           listener: (context, state) {

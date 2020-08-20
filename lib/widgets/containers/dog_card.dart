@@ -1,3 +1,4 @@
+import 'package:breedy/constants.dart';
 import 'package:breedy/models/doggo.dart';
 import 'package:breedy/widgets/components/dog_image.dart';
 import 'package:breedy/widgets/components/dog_info.dart';
@@ -13,14 +14,19 @@ class DogCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(15),
+      color: CustomColour.background,
       child: ListView(
         children: [
-          DogTitle(name: doggo.name, origin: doggo.breedGroup),
+          Container(
+            alignment: Alignment.topLeft,
+            padding: EdgeInsets.only(bottom: 30.0),
+            child: DogTitle(name: doggo.name, origin: doggo.breedGroup),
+          ),
           ClipRRect(
-            borderRadius: BorderRadius.circular(20.0),
+            borderRadius: BorderRadius.circular(10.0),
             child: Container(
-              padding: EdgeInsets.all(15),
-              color: Colors.black26,
+              padding: EdgeInsets.all(20),
+              color: CustomColour.card,
               child: DogImage(
                 imageUrl: doggo.imageUrl,
                 imageHeight: doggo.imageHeight,

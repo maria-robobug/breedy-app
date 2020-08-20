@@ -29,18 +29,14 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Breedy",
       theme: ThemeData(brightness: Brightness.light),
       home: Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text(
-            "Breedy",
-            textScaleFactor: 1.5,
-            style: CustomTextStyle.title,
-          ),
+          title: Text("Breedy",
+              textScaleFactor: 1.5, style: CustomTextStyle.appTitle),
           shadowColor: Colors.transparent,
-          backgroundColor: Colors.white10,
+          backgroundColor: CustomColour.background,
         ),
         body: DoggoScreen(animalRepository: animalRepository),
       ),

@@ -9,14 +9,20 @@ class DogTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(bottom: 25.0),
-      child: Column(children: <Widget>[
-        Text(name, style: CustomTextStyle.heading),
+      // padding: EdgeInsets.only(bottom: 20.0),
+      child: ListView(shrinkWrap: true, children: <Widget>[
+        Text(
+          name,
+          style: CustomTextStyle.heading,
+          textAlign: TextAlign.left,
+          textDirection: TextDirection.ltr,
+        ),
         origin != null
             ? Text(
                 " " + origin + " dog",
                 style: CustomTextStyle.subHeading,
-                textAlign: TextAlign.center,
+                textAlign: TextAlign.left,
+                textDirection: TextDirection.rtl,
               )
             : Text(""),
       ]),
