@@ -33,8 +33,8 @@ class App extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text("Breedy",
-              textScaleFactor: 1.5, style: CustomTextStyle.appTitle),
+          // title: Text("Breedy",
+          //     textScaleFactor: 1.5, style: CustomTextStyle.appTitle),
           shadowColor: Colors.transparent,
           backgroundColor: CustomColour.background,
         ),

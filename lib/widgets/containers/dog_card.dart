@@ -1,9 +1,11 @@
+import 'dart:convert';
+
 import 'package:breedy/constants.dart';
 import 'package:breedy/models/doggo.dart';
-import 'package:breedy/widgets/components/dog_image.dart';
-import 'package:breedy/widgets/components/dog_info.dart';
-import 'package:breedy/widgets/components/dog_summary.dart';
-import 'package:breedy/widgets/components/dog_title.dart';
+import 'package:breedy/widgets/components/page_image.dart';
+import 'package:breedy/widgets/components/info.dart';
+import 'package:breedy/widgets/components/summary.dart';
+import 'package:breedy/widgets/components/page_title.dart';
 import 'package:flutter/material.dart';
 
 class DogCard extends StatelessWidget {
@@ -20,26 +22,37 @@ class DogCard extends StatelessWidget {
           Container(
             alignment: Alignment.topLeft,
             padding: EdgeInsets.only(bottom: 30.0),
-            child: DogTitle(name: doggo.name, origin: doggo.breedGroup),
+            child: PageTitle(title: doggo.name, subHeading: doggo.breedGroup),
           ),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(10.0),
-            child: Container(
-              padding: EdgeInsets.all(20),
-              color: CustomColour.card,
-              child: DogImage(
-                imageUrl: doggo.imageUrl,
-                imageHeight: doggo.imageHeight,
-                imageWidth: doggo.imageWidth,
-              ),
+          Container(
+            child: PageImage(
+              imageUrl: doggo.imageUrl,
+              imageHeight: doggo.imageHeight,
+              imageWidth: doggo.imageWidth,
             ),
           ),
-          DogInfo(
-            height: doggo.height,
-            weight: doggo.weight,
-            lifespan: doggo.lifespan,
+          SizedBox(height: 30),
+          Container(
+            alignment: Alignment.center,
+            padding: EdgeInsets.only(bottom: 10.0),
+            child: Column(
+              children: [
+                PageTitle(title: "Traits"),
+                Summary(summary: doggo.temperament),
+                SizedBox(height: 10),
+                Divider(
+                  color: Colors.grey,
+                  indent: 120,
+                  endIndent: 120,
+                ),
+                Info(
+                  option1: doggo.height,
+                  option2: doggo.weight,
+                  option3: doggo.lifespan,
+                ),
+              ],
+            ),
           ),
-          DogSummary(temperament: doggo.temperament),
         ],
       ),
     );

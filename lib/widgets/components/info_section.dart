@@ -1,10 +1,10 @@
 import 'package:breedy/constants.dart';
 import 'package:flutter/material.dart';
 
-class DogInfoSection extends StatelessWidget {
+class InfoSection extends StatelessWidget {
   final String title, detail;
 
-  const DogInfoSection({Key key, this.detail, this.title}) : super(key: key);
+  const InfoSection({Key key, this.detail, this.title}) : super(key: key);
   static const double SCALE_FACTOR = 1.2;
 
   @override
